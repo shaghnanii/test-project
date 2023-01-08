@@ -13,8 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('settings', function (Blueprint $table) {
+        Schema::create('business_hours', function (Blueprint $table) {
             $table->id();
+            $table->string('day', '20');
+            $table->time('open_time')->nullable();
+            $table->time('close_time')->nullable();
+            $table->time('lunch_break_open')->nullable();
+            $table->time('lunch_break_close')->nullable();
+            $table->boolean('is_on')->default(false);
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('settings');
+        Schema::dropIfExists('business_hours');
     }
 };

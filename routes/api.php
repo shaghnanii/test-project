@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\TestController;
-use Carbon\Carbon;
+use App\Http\Controllers\Calculate\CalculateController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/test', [TestController::class, 'test']);
+Route::get('/calculate', [CalculateController::class, 'index']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
