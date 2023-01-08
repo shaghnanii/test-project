@@ -68,7 +68,7 @@ class CalculateController extends Controller
             }
 
 //            checking for the store opening and closing time
-            if (!$this->isInBetween($workingDay->open_time, $workingDay->close_time)) {
+            if (!$this->isInBetween($workingDay->open_time, $workingDay->close_time, 'custom')) {
                 return $this->response404($this->closed_message);
             }
 

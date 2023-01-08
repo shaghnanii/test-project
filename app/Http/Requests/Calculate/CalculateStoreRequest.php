@@ -24,7 +24,7 @@ class CalculateStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'selected_date' => ['required', 'date_format:Y-m-d']
+            'selected_date' => ['required', 'date_format:Y-m-d', 'after_or_equal:today']
         ];
     }
 }
