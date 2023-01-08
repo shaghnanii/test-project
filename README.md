@@ -1,4 +1,4 @@
-# Laravel First Time Configuration Steps
+# Laravel Setup
 
 ## Steps
 
