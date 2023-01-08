@@ -29,8 +29,12 @@ class CalculateController extends Controller
     public function index(CalculateIndexRequest $request): JsonResponse
     {
         try {
-            $today = Carbon::now()->timezone('Asia/Karachi')->format('Y-m-d');
-//            $today = '2023-02-04'; // for testing purpose, we can change the current(today) date here.
+            if (isset($request->today)) {
+                $today = $request->today;
+            }
+            else {
+                $today = Carbon::now()->timezone('Asia/Karachi')->format('Y-m-d');
+            }
             $day = Carbon::parse($today)->format('l');
 
 //            Here if the day is saturday it will check for the alternate saturday and generate result based on that

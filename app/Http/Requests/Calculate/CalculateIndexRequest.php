@@ -24,6 +24,7 @@ class CalculateIndexRequest extends FormRequest
     public function rules()
     {
         return [
+            'today' => ['nullable', 'date_format:Y-m-d']
         ];
     }
 }
