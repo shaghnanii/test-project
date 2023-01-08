@@ -64,14 +64,12 @@ class CalculateController extends Controller
             $workingDay = $service->isWorkingDay($day, $today);
 
             if (empty($workingDay)) {
-                // checking for next working day.
-                $next_day = $service->nextWorkingDay($day, $today);
-                return $this->response404($this->closed_message . " Next Working Day: {$next_day}");
+                return $this->response404($this->closed_message);
             }
 
 //            checking for the store opening and closing time
             if (!$this->isInBetween($workingDay->open_time, $workingDay->close_time)) {
-                return $this->response404($this->closed_message . ' Store is going be open soon/already closed.');
+                return $this->response404($this->closed_message);
             }
 
             return $this->response200($this->open_message, $workingDay);
