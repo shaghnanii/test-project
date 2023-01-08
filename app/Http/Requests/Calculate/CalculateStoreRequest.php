@@ -4,7 +4,7 @@ namespace App\Http\Requests\Calculate;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CalculateIndexRequest extends FormRequest
+class CalculateStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class CalculateIndexRequest extends FormRequest
     public function rules()
     {
         return [
-//            'today' => ['nullable', 'date_format:Y-m-d']
+            'selected_date' => ['required', 'date_format:Y-m-d']
         ];
     }
 }
